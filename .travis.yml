@@ -25,8 +25,6 @@ script:
   - PATH=$HOME/gopath/bin:./third_party/etcd:$PATH ./hack/test-cmd.sh
   - PATH=$HOME/gopath/bin:./third_party/etcd:$PATH ./hack/verify-gendocs.sh
   - PATH=$HOME/gopath/bin:./third_party/etcd:$PATH ./hack/test-integration.sh
-  - go test -coverprofile=coverage.txt -covermode count ./
+  - go test -coverprofile=coverage.txt -covermode count ./hack/test-go.sh
   - $GOPATH/bin/gocover-cobertura < coverage.txt > shippable/codecoverage
 
-notifications:
-  irc: "chat.freenode.net#google-containers"
